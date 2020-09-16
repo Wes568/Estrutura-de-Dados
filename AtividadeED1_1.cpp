@@ -54,16 +54,7 @@ class Data
 		{
 			return this->ano;
 		}
-		int getIdade(){
 
-		if((dia>9)&(mes>=9))
-		{
-    		return this->idade=(2020-ano)-1;
-		}
-		else{
-			return this->idade=2020-ano;
-		}	
-		};
 		string getData()
 		{
 		    return to_string(this->dia) + "/" + to_string(this->mes) + "/" + to_string(this->ano);
@@ -76,8 +67,15 @@ class Contato
 		string nome;
 		string email;
 		string telefone;
+		int idade;
+		Data data2;
 		
 	public:
+		
+		void setData(Data data2){
+			this->data2=data2;
+		}
+				
 		void setNome(string nomeTemp){
 			this->nome = nomeTemp;
 		};
@@ -88,7 +86,6 @@ class Contato
 			this->telefone = telefoneTemp;
 		};
 
-		
 		string getNome(){
 			return this->nome;	
 		};
@@ -98,7 +95,19 @@ class Contato
 		string getTelefone(){
 			return this->telefone;	
 		};
+		
+		int getIdade(){
 
+        Data *idade=&data2;
+        
+		if((idade->getDia()>15)&(idade->getMes()>=9))
+		{
+    		return this->idade=(2020-idade->getAno())-1;
+		}
+		else{
+			return this->idade=2020-idade->getAno();
+		}	
+		};
 
 };
 
@@ -114,6 +123,7 @@ int main(int argc, char** argv)
 	Contato *cont = new Contato();
 	Data *hoje = new Data(9, 9, 2020);
 	Data *nasc = new Data(dia, mes, ano);
+	Data nasc2;
 	
 	cout << "Digite o seu nome: ";
 	cin >> nome;
@@ -140,6 +150,9 @@ int main(int argc, char** argv)
 	cin >> ano;
 	nasc->setAno(ano);
 	
+	nasc2=*nasc;
+	cont->setData(nasc2);
+	
 	cout<< endl;
 	
 	cout << "---" <<hoje->getData()<< "---" << endl;
@@ -148,7 +161,7 @@ int main(int argc, char** argv)
 	cout << "E-mail:" <<cont->getEmail() << endl;
 	cout << "Telefone: " <<cont->getTelefone() << endl;
 	cout << "Data de Nascimento: " <<nasc->getData() << endl;
-	cout << "Idade: " << nasc->getIdade() << endl;
+	cout << "Idade: " << cont->getIdade() << endl;
 	
 
 }
