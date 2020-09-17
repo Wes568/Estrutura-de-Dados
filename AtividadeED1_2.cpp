@@ -184,11 +184,11 @@ int main(int argc, char** argv)
 	
 	cout<< endl;
 	
-	cout << "A média da idade dos contatos é igual: " << media << endl;
+	cout << "A media da idade dos contatos e igual: " << media << endl;
 	
 	cout<< endl;
 	
-	cout << "Contato com idade maior que a média: " << endl;
+	cout << "Contato com idade maior que a media: " << endl;
 	
 	for(int i=0;i<10;i++)
 	{
@@ -205,14 +205,14 @@ int main(int argc, char** argv)
 			maisvelho=idade[i];
 		}
 	}
-	
+
 	cout<< endl;
 	
 	cout << "Quantidade de contatos maiores de idade: " << cont2 << endl;
 	
 	cout<< endl;
 	
-	cout << "O contato mais velho é: ";
+	cout << "O contato mais velho e: ";
 	for(int i=0;i<10;i++)
 	{
 		if(idade[i]==maisvelho)
